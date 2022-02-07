@@ -7,31 +7,22 @@
  *
  * @returns {number}
  */
- function getMaxPairs(noOfWashes, cleanPile, dirtyPile) {
+function getMaxPairs(noOfWashes, cleanPile, dirtyPile) {
   let maxPair = 0;
   let singlePair = [];
-  cleanPile = cleanPile.sort((a, b) => {
-    return a - b;
-  });
-  dirtyPile = dirtyPile.sort((a, b) => {
-    return a - b;
-  });
+  cleanPile = cleanPile.sort((a, b) =>  a - b);
+  dirtyPile = dirtyPile.sort((a, b) =>  a - b);
   for (let i = 0; i < cleanPile.length; i++) {
     if (cleanPile[i] === cleanPile[i + 1]) {
-      console.log("cleanPile: ", cleanPile);
       maxPair++;
       cleanPile.splice(i, 1);
-      console.log("cleanPile: ", cleanPile);
     } else {
       singlePair.push(cleanPile[i]);
-      console.log("singlePair: ", singlePair);
-      console.log("cleanPile: ", cleanPile);
     }
   }
-  for (let j = 0; j < singlePair.length; j++) {
+  for (let i = 0; i < singlePair.length; i++) {
     if (dirtyPile.includes(singlePair[j]) && noOfWashes > 0) {
       dirtyPile.splice(j, 1);
-      console.log("dirtyPile: ", dirtyPile);
       maxPair++;
       noOfWashes--;
     }
@@ -45,7 +36,5 @@
   }
   return maxPair;
 }
-
-
 
 module.exports = getMaxPairs;
