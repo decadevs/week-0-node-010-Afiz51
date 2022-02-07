@@ -21,8 +21,8 @@ function getMaxPairs(noOfWashes, cleanPile, dirtyPile) {
     }
   }
   for (let i = 0; i < singlePair.length; i++) {
-    if (dirtyPile.includes(singlePair[j]) && noOfWashes > 0) {
-      dirtyPile.splice(j, 1);
+    if (dirtyPile.includes(singlePair[i]) && noOfWashes > 0) {
+      dirtyPile.splice(i, 1);
       maxPair++;
       noOfWashes--;
     }
